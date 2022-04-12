@@ -1,0 +1,123 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-4">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Withdrawal</li>
+  </ol>
+</nav>
+
+
+<!-- SELECT2 EXAMPLE -->
+<div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title"><strong> Make Withdrawal Form</strong></h3>
+
+    <div class="card-tools">
+      <span class="badge badge-success">Account No: {{userAccountNumber}}</span>
+      <span class="badge badge-warning">Account Bal:&#8358; {{userBalance}}</span>
+      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove" disabled>
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <div class="row">
+
+
+    </div>
+
+    <div class="dataForm">
+      <form>
+        <label for="paymentMethod" class="inputLabel">Payment Method</label>
+        <select id="paymentMethod" class="input" name="paymentMethod" [(ngModel)]="paymentMethod">
+          <option selected value="">Select Payment Method</option>
+          <option value="Card">ATM Card or Bank</option>
+          <!-- ... -->
+        </select>
+        <br /><br>
+        <label for="paymentMethod" class="inputLabel">Amount</label>
+        <input type="text" class="input" placeholder="Enter Amount (&#8358;5000, MAX)" name="amountToWithdraw"
+          [(ngModel)]="amountToWithdraw" /><br><br>
+        <label for="paymentMethod" class="inputLabel">My Wallet Pin</label>
+        <input type="text" name="uvt" class="input" placeholder="PIN" name="pin" [(ngModel)]="transactionPin" />
+        <button name="" id="submit" (click)="withdrawal()">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shield-alt"
+            class="svg-inline--fa fa-shield-alt fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512" width="20px" height="20px">
+            <path fill="currentColor"
+              d="M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z">
+            </path>
+          </svg>
+          &nbsp;&nbsp;Withdraw
+        </button>
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" position="relative"
+          type="ball-scale-multiple">
+          <p style="font-size: 20px; color: white; position: relative;">Loading...</p>
+        </ngx-spinner>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Log of all Withdrawal made</h3>
+
+        <div class="card-tools">
+          <div class="input-group input-group-sm" style="width: 150px;">
+            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-default">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body table-responsive p-0">
+        <table class="table table-hover text-nowrap">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Service</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Charges</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr
+              *ngFor="let list of WalletTransaction.slice().reverse() | paginate: { itemsPerPage: 5, currentPage: p };let i=index">
+              <th>{{i+1}}</th>
+              <td>{{list.date | date}}</td>
+              <td>{{list.service}}</td>
+              <td>{{list.description}}</td>
+              <td>{{list.amount}}</td>
+              <td>{{list.serviceCharge}}</td>
+              <td><span class="tag tag-success"> {{list.status}}</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+
+      <!-- Pagination -->
+
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <!-- /.card -->
+  </div>
+</div>

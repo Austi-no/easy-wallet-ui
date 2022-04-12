@@ -1,0 +1,98 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb mt-4">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Transfer</li>
+  </ol>
+</nav>
+
+
+<div class="card card-default">
+  <div class="card-header">
+    <div class="card-tools">
+      <span class="badge badge-success">Account No: {{userAccountNumber}}</span>
+      <span class="badge badge-warning">Account Bal:&#8358; {{userBalance}}</span>
+      <button type="button" class="btn btn-tool" data-card-widget="collapse">
+        <i class="fas fa-minus"></i>
+      </button>
+      <button type="button" class="btn btn-tool" data-card-widget="remove" disabled>
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <div class="row">
+
+      <div class="col-sm-6 col-md-6 col-lg-6">
+
+        <div class="acctBtn">
+          <input type="text" name="recipientAcctNo" [(ngModel)]="accountNo" />
+          <button (click)=" openTransferAccount() ">Go</button>
+        </div>
+
+        <div class="dataForm mt-4 " *ngIf="hideForm ">
+          <form>
+            <label for="paymentMethod " class="inputLabel ">Account No:</label>
+            <input type="text " name="uvt " class="input " value="{{recipient?.walletAccountId?.accountNumber}}"
+              disabled />
+
+            <br /><br>
+            <label for="paymentMethod " class="inputLabel ">Amount</label>
+            <input type="text " name="uvt " class="input " placeholder="Enter Amount (&#8358;500, Min) "
+              [(ngModel)]="amountToTransfer" name="amountToTransfer " /><br><br>
+            <label for="paymentMethod " class="inputLabel ">My Wallet Pin</label>
+            <input type="text " name="uvt " class="input " placeholder="PIN " name="pin " [(ngModel)]="transactionPin"
+              name="transactionPin " />
+            <button type="button " class="btn btn-sm btn-block mt-2 " style="background-color: #4f8e87; "
+              (click)="transfer()">Transfer</button>
+
+            <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" position="relative"
+              type="ball-scale-multiple">
+              <p style="font-size: 20px; color: white; position: relative;">Loading...</p>
+
+            </ngx-spinner>
+          </form>
+
+        </div>
+
+      </div>
+
+      <div class="col-sm-6 col-md-6 col-lg-6 display ">
+        <div class="widget widget-reminder ">
+          <div class="widget-reminder-header "> FROM:</div>
+          <div class="widget-reminder-container ">
+            <div class="widget-reminder-time ">
+              {{currentTime | date:'medium'}}<br />
+            </div>
+            <div class="widget-reminder-divider bg-success "></div>
+            <div class="widget-reminder-content ">
+              <h4 class="widget-title ">{{loggedInUser?.firstName}} {{loggedInUser?.lastName}}</h4>
+              <div class="widget-desc "><i class="fa fa-envelope "></i> {{loggedInUser?.email}}</div>
+              <div class="widget-desc "><i class="fa fa-phone "></i> {{loggedInUser?.phone}}</div>
+              <!-- <div class="widget-desc "><i class="fa fa-map-pin "></i> No 1 Beach Road Jos</div> -->
+              <h4 class="widget-title ">Account Number :<span>{{loggedInUser?.walletAccountId?.accountNumber}}</span>
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="widget widget-reminder " *ngIf="hideForm ">
+          <div class="widget-reminder-header "> TO:</div>
+          <div class="widget-reminder-container ">
+            <div class="widget-reminder-time ">
+              {{currentTime | date: 'medium'}}<br />
+            </div>
+            <div class="widget-reminder-divider bg-danger "></div>
+            <div class="widget-reminder-content ">
+              <h4 class="widget-title ">{{recipient?.lastName | uppercase}} {{recipient?.firstName}}</h4>
+              <div class="widget-desc "><i class="fa fa-envelope "></i> {{recipient?.email}}</div>
+              <div class="widget-desc "><i class="fa fa-phone "></i> {{recipient?.phone}}</div>
+              <!-- <div class="widget-desc "><i class="fa fa-map-pin "></i> No 1 Beach Road Jos</div> -->
+              <h4 class="widget-title ">Account Number :<span>{{recipient?.walletAccountId?.accountNumber}}</span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

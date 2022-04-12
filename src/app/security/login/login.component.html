@@ -1,0 +1,74 @@
+<main class="auth">
+  <header id="auth-header" class="auth-header" style="background-image: url(assets/img/img-1.png);">
+    <h1>
+      <img src="assets/img/brand-inverse.png" alt="" height="72">
+      <span class="sr-only">Sign In</span>
+    </h1>
+    <p> Don't have a account?
+      <a routerLink="/sign-up">Create One</a>
+    </p>
+  </header>
+  <!-- form -->
+  <form class="auth-form" [formGroup]="loginForm">
+    <!-- .form-group -->
+    <div class="form-group">
+      <div class="form-label-group control">
+        <input type="text" formControlName="username" class="form-control" placeholder="Username" autofocus=""
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors } ">
+        <label>Username</label>
+        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+          <div>
+            <span *ngIf="f.username.errors?.required">username is required</span>
+            <span *ngIf="f.username.errors?.minlength">username must have atleat the minlength of 6 characters</span>
+            <span *ngIf="f.username.errors?.invalidusername ">Username must not have any special character </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.form-group -->
+    <!-- .form-group -->
+    <div class="form-group">
+      <div class="form-label-group">
+        <input type="password" formControlName="password" class="form-control" placeholder="Password" required=""
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors } ">
+        <label>Password</label>
+        <div *ngIf="submitted && f.password.errors " class="invalid-feedback ">
+          <div>
+            <span *ngIf="f.password.errors.required ">Password is required</span>
+            <span *ngIf="f.password.errors?.invalidPassword ">Password should have minimum 8 characters, at least 1
+              uppercase, 1 lowercase, a number & special character </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.form-group -->
+    <!-- .form-group -->
+    <div class="form-group">
+      <button (click)="login()" style="background-color: #31b1a4;" class="btn btn-lg btn-primary btn-block">Sign
+        In</button>
+    </div>
+
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" [template]="loginForm"></ngx-loading>
+    <!-- /.form-group -->
+    <!-- .form-group -->
+    <div class="form-group text-center">
+      <div class="custom-control custom-control-inline custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="remember-me">
+        <label class="custom-control-label" for="remember-me">Keep me sign in</label>
+      </div>
+    </div>
+    <!-- /.form-group -->
+    <!-- recovery links -->
+    <div class="text-center pt-3">
+      <a href="auth-recovery-username.html" class="link">Forgot Username?</a>
+      <span class="mx-2">·</span>
+      <a href="auth-recovery-password.html" class="link">Forgot Password?</a>
+    </div>
+
+    <!-- /recovery links -->
+  </form>
+  <!-- /.auth-form -->
+  <!-- copyright -->
+
+</main>

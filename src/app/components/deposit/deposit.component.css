@@ -1,0 +1,54 @@
+.dataForm {
+    width: 55%;
+    margin: auto;
+    padding: 15px 20px;
+    border: 1px solid #fff;
+    border-radius: 0px 0px 5px 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 3px 0px #b3b3b3;
+    transition: box-shadow 0.2s linear;
+    border-top: 2px solid #31b1a4;
+    background: #fff;
+}
+
+.input {
+    width: 100%;
+    padding: 3px 1px;
+    border-bottom: 1px solid #31b1a4;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    /* border: 1px solid #c4cfd4; */
+}
+
+#submit {
+    width: 100%;
+    padding: 7px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    background-color: #31b1a4;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+/* 
+@media (min-width:576px) and (max-width:998px) {
+    h3 {
+        padding: 0.75rem 1.25rem;
+        position: relative
+    }
+}
+
+@media (min-width:225px) and (max-width:463px) {
+    h3 {
+        width: 92% !important;
+        margin-left: 30px !important;
+        text-align: center !important;
+    }
+} */
+
+@media (min-width:1500px) and (max-width:1650px) {}

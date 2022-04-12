@@ -1,0 +1,11 @@
+{
+    "/": {
+        "target": "http://localhost:9595/easyWallet/api",
+        "pathRewrite": {
+            "^/": ""
+        },
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "info"
+    }
+}

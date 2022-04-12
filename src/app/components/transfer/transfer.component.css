@@ -1,0 +1,268 @@
+.widget {
+    background: #fff;
+    margin-bottom: .75rem;
+    display: block;
+    position: relative;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1), 0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1), 0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12), 0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+
+.widget .widget-header,
+.widget-reminder-content,
+.widget-reminder-time,
+a.widget-header-title {
+    padding: 0.625rem;
+}
+
+.widget-chat-message:after,
+.widget-chat-message:before,
+.widget-reminder-container:after,
+.widget-reminder-container:before {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+.widget-footer.with-border,
+.widget-reminder-container+.widget-reminder-container {
+    border-top: 1px solid #efeff4;
+}
+
+.widget-footer.with-bg,
+.widget-header.with-bg {
+    background: #efeff4;
+}
+
+.widget-header.with-border {
+    border-bottom: 1px solid #efeff4;
+}
+
+.widget-reminder-header {
+    background: #efeff4;
+    padding: 0.625rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #8a8a8f;
+}
+
+.widget-reminder-container {
+    position: relative;
+}
+
+.inverse-mode .widget-reminder-container+.widget-reminder-container {
+    border-color: #333;
+}
+
+.inverse-mode .widget-reminder-header {
+    background: #212121;
+}
+
+.widget-reminder-time {
+    width: 5rem;
+    float: left;
+    text-align: right;
+    font-size: 0.625rem;
+}
+
+.widget-reminder-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5rem;
+    width: 0.125rem;
+    background: #efeff4;
+}
+
+.widget-reminder-content {
+    margin-left: 5.125rem;
+}
+
+.widget-header-title {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.widget .widget-title,
+.widget .widget-title a {
+    font-size: .75rem;
+    color: #000;
+    line-height: 1rem;
+}
+
+.widget .widget-title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.widget-desc,
+.widget-desc a {
+    font-size: .6875rem;
+    line-height: 1rem;
+    color: #8A8A8F;
+    font-weight: 500;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.pull-left {
+    float: left!important;
+}
+
+.pull-right {
+    float: right!important;
+}
+
+.m-t-15 {
+    margin-top: 15px!important;
+}
+
+.m-r-5 {
+    margin-right: 5px!important;
+}
+
+.widget .widget-header,
+.widget-reminder-content,
+.widget-reminder-time,
+a.widget-header-title {
+    padding: .625rem;
+}
+
+.acctBtn {
+    /* This bit sets up the horizontal layout */
+    display: flex;
+    flex-direction: row;
+    /* This bit draws the box around it */
+    border: 2px solid #31b1a4;
+    /* I've used padding so you can see the edges of the elements. */
+    padding: 2px;
+    width: 92% !important;
+    margin-left: 30px !important;
+}
+
+@media (min-width:1500px) and (max-width:1650px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 30px !important;
+    }
+    .dataForm {
+        width: 86% !important;
+    }
+}
+
+@media (min-width:1341px) and (max-width:1501px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 20px !important;
+    }
+    .dataForm {
+        width: 85% !important;
+    }
+}
+
+@media (min-width:1145px) and (max-width:1300px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 20px !important;
+    }
+    .dataForm {
+        width: 82% !important;
+    }
+}
+
+@media (min-width:1087px) and (max-width:1144px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 20px !important;
+    }
+    .dataForm {
+        width: 82% !important;
+    }
+}
+
+@media (min-width:998px) and (max-width:1088px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 16px !important;
+    }
+    .dataForm {
+        width: 82% !important;
+    }
+}
+
+@media (min-width:576px) and (max-width:998px) {
+    .acctBtn {
+        width: 94% !important;
+        margin-left: 10px !important;
+    }
+    .dataForm {
+        width: 92% !important;
+    }
+}
+
+@media (min-width:225px) and (max-width:463px) {
+    .acctBtn {
+        width: 94% !important;
+        margin-left: 10px !important;
+    }
+    .dataForm {
+        width: 40% !important;
+    }
+}
+
+@media (min-width:463px) and (max-width:575px) {
+    .acctBtn {
+        width: 92% !important;
+        margin-left: 20px !important;
+    }
+    .dataForm {
+        width: 92% !important;
+    }
+}
+
+.dataForm {
+    width: 92% !important;
+}
+
+input {
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border: none;
+}
+
+input:focus {
+    /* removing the input focus blue box. Put this on the form if you like. */
+    outline: none;
+}
+
+button {
+    /* Just a little styling to make it pretty */
+    border: 1px solid #31b1a4;
+    background: #31b1a4;
+    color: white;
+}
+
+.dataForm {
+    width: 55%;
+    margin: auto;
+    padding: 15px 20px;
+    border: 1px solid #fff;
+    border-radius: 0px 0px 5px 5px;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 3px 0px #b3b3b3;
+    transition: box-shadow 0.2s linear;
+    border-top: 2px solid #31b1a4;
+    background: #fff;
+}
+
+.input {
+    width: 100%;
+    padding: 3px 1px;
+    border-bottom: 1px solid #31b1a4;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    /* border: 1px solid #c4cfd4; */
+}
